@@ -34,6 +34,8 @@ This will start the `open-webui` service and attach the DeepSeek-R1 model specif
 
 1. **Open your browser** and go to `http://localhost:3000` to access the Open WebUI interface.
 
+![localhost_3000_auth(Nest Hub)](https://github.com/user-attachments/assets/4bda8a79-b615-4fcc-bf49-e02ee3a08d45)
+
 ### Registering an Account
 
 1. **Register a local account** on the Open WebUI.
@@ -42,7 +44,7 @@ This will start the `open-webui` service and attach the DeepSeek-R1 model specif
 
 1. Go to `http://localhost:3000/admin/settings`.
 2. Navigate to the **Models** tab.
-3. Click **Manage Model**.
+3. Click **Manage Models**.
 4. Enter the model tab and type:
 
 ```shell
@@ -50,6 +52,12 @@ deepseek-r1:1.5b
 ```
 
 You can find the list of available DeepSeek-R1 models [here](https://ollama.com/library/deepseek-r1).
+
+![localhost_3000_admin_settings(Nest Hub)](https://github.com/user-attachments/assets/a383eb2f-981c-4765-8a4a-1589dd0d1ace)
+
+Start chatting!
+
+![localhost_3000_admin_settings(Nest Hub) (1)](https://github.com/user-attachments/assets/57fe5387-5018-47db-8eba-d353bf8f8e90)
 
 ### Stopping the Services
 
@@ -74,13 +82,16 @@ services:
       - ollama:/root/.ollama
       - open-webui:/app/backend/data
     restart: unless-stopped
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [ gpu ]
+    # Uncomment the following block if your system has NVIDIA GPUs
+    # and you want to leverage GPU acceleration
+    #
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [ gpu ]
 
 volumes:
   ollama:
