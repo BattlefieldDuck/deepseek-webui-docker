@@ -28,7 +28,7 @@ cd deepseek-webui-docker
 docker compose up -d
 ```
 
-This will start the `open-webui` service and attach the DeepSeek-R1 model specified in your `docker-compose.yml`.
+![image](https://github.com/user-attachments/assets/333b66c5-ca79-4f70-80ea-540090c0e7ef)
 
 ### Accessing the Web Interface
 
