@@ -8,13 +8,16 @@ services:
       - ollama:/root/.ollama
       - open-webui:/app/backend/data
     restart: unless-stopped
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [ gpu ]
+    # Uncomment the following block if your system has NVIDIA GPUs
+    # and you want to leverage GPU acceleration
+    #
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [ gpu ]
 
 volumes:
   ollama:
